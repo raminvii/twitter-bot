@@ -1,0 +1,23 @@
+# Must download Anaconda/Jupiter and import a data set (CSV file) from Kaggle prior to starting project
+# Create Kaggle account, download .zip file and move .csv file adjacent to .ipynb file (i.e. put them next to each other in same folder)
+# This is done so you don't have to supply the full path to the file
+# Familiarise yourself with jupyter (h for shortcuts in cmd mode), panda, numpy and scikit-learn or keep a guide handy
+
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+
+# No need to clean data because there's no duplicates and no invalid/empty entries
+
+music_Data = pd.read_csv("music.csv")
+X =music_data.drop("columns=["genre"])
+y =music_data["genre"]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = DecisionTreeClassifier()
+model.fit(X_train, y_trrain)
+predictions = model.predict(X_test)
+
+accuracy_score(y_test, predictions)
+score
